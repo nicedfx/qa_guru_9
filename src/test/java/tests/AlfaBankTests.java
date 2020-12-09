@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 /**
  *
  */
-public class AlfaBankTests {
+public class AlfaBankTests extends TestBase{
 
     @Test
     public void alfaTestDeposits() {

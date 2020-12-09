@@ -11,12 +11,8 @@ import static com.codeborne.selenide.Selenide.*;
 /**
  *
  */
-public class ToolsQaPracticeFormTests {
+public class ToolsQaPracticeFormTests extends TestBase{
 
-    @BeforeAll
-    static  void setup() {
-        Configuration.startMaximized = true;
-    }
 
     @Test
     void regForm() {

@@ -19,9 +19,10 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "http://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+//        Configuration.remote = "http://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+        Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
 //        Configuration.remote = "http://notebook.home:4444/wd/hub/";
-//        System.out.println("!@#!@#!@#@# SELENOID URI IS: " + Configuration.remote);
+        System.out.println("!@#!@#!@#@# SELENOID URI IS: " + Configuration.remote);
         Configuration.startMaximized = true;
     }
 

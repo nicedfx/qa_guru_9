@@ -11,6 +11,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 
 public class TestBase {
+
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));

@@ -75,39 +75,37 @@ public class ToolsQaPracticeFormTests extends TestBase{
         });
 
         step("Checking that the result form contains all values that were filled.", () -> {
+            $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[1]").shouldHave(text("Student Name"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]").shouldHave(text(firstName + " " + lastName));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[1]").shouldHave(text("Student Email"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[2]").shouldHave(text(userEmail));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[3]/td[1]").shouldHave(text("Gender"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[3]/td[2]").shouldHave(text(userGender));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[1]").shouldHave(text("Mobile"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[2]").shouldHave(text(userNumber));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[1]").shouldHave(text("Date of Birth"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[2]").shouldHave(text(dateOfBirthDay + " " + dateOfBirthMonth +"," + dateOfBirthYear));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[1]").shouldHave(text("Subjects"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[2]").shouldHave(text(subject1 + ", " + subject2));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[1]").shouldHave(text("Hobbies"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[2]").shouldHave(text(hobbie1 + ", " + hobbie2));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[1]").shouldHave(text("Picture"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]").shouldHave(text(filename));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[1]").shouldHave(text("Address"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[2]").shouldHave(text(address));
+
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[1]").shouldHave(text("State and City"));
+            $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[2]").shouldHave(text(state + " " + city));
         });
-
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[1]").shouldHave(text("Student Name"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]").shouldHave(text(firstName + " " + lastName));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[1]").shouldHave(text("Student Email"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[2]").shouldHave(text(userEmail));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[3]/td[1]").shouldHave(text("Gender"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[3]/td[2]").shouldHave(text(userGender));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[1]").shouldHave(text("Mobile"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[2]").shouldHave(text(userNumber));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[1]").shouldHave(text("Date of Birth"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[2]").shouldHave(text(dateOfBirthDay + " " + dateOfBirthMonth +"," + dateOfBirthYear));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[1]").shouldHave(text("Subjects"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[2]").shouldHave(text(subject1 + ", " + subject2));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[1]").shouldHave(text("Hobbies"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[2]").shouldHave(text(hobbie1 + ", " + hobbie2));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[1]").shouldHave(text("Picture"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]").shouldHave(text(filename));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[1]").shouldHave(text("Address"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[2]").shouldHave(text(address));
-
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[1]").shouldHave(text("State and City"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[2]").shouldHave(text(state + " " + city));
     }
 }

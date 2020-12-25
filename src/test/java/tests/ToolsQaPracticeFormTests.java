@@ -32,7 +32,7 @@ public class ToolsQaPracticeFormTests extends TestBase{
 
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
-        String userEmail = faker.cat().name().replace(" ", "") + "@" + faker.cat().breed().replace(" ", "") + ".com";
+        String userEmail = faker.cat().name().replace(" ", "") + "@" + faker.cat().name().replace(" ", "") + ".com";
         String userNumber = fakerValServ.regexify("[0-9]{10}");
         String userGender = faker.options().option("Male", "Female", "Other");
         String dateOfBirthMonth = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");

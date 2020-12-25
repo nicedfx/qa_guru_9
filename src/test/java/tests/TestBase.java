@@ -1,13 +1,14 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+import static helpers.AttachmentHelper.*;
 
 
 public class TestBase {
@@ -20,17 +21,38 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-//        Configuration.remote = "http://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
-        Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
-//        Configuration.remote = "http://notebook.home:4444/wd/hub/";
-        System.out.println("!@#!@#!@#@# SELENOID URI IS: " + Configuration.remote);
+
+        if (System.getProperty("remote.browser.url") != null){
+            if (System.getProperty("remote.browser.url").equals("notebook.home")){
+                Configuration.remote = "http://notebook.home:4444/wd/hub/";
+            }
+            else if (System.getProperty("remote.browser.url").equals("selenoid.autotests.cloud")) {
+                Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+            }
+            else {
+                Configuration.remote = "https://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+            }
+        }
+//        else {
+//            Configuration.remote = "http://notebook.home:4444/wd/hub/";
+//        }
+
+//        System.out.println("!@#!@#!@#@# SELENOID URI IS: " + Configuration.remote);
         Configuration.startMaximized = true;
     }
 
     @AfterEach
     public void wrapUp() {
-
-        Selenide.closeWebDriver();
+        attachScreenshot("Last screenshot");
+        attachPageSource();
+//        attachAsText("Browser console logs", getConsoleLogs());
+//        attachAsText("Browser console logs", "Just a text");
+//        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+//        System.out.println("Printing out the console logs");
+//        System.out.println(Selenide.getWebDriverLogs(BROWSER));
+//        System.out.println(getConsoleLogs());
+//        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        closeWebDriver();
         }
 
 }

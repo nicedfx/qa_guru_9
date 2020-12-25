@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -23,6 +24,7 @@ public class ToolsQaPracticeFormTests extends TestBase{
 
     @Test
     @Tag("regForm")
+    @DisplayName("ToolsQA reg form test")
     void regForm() {
 
         Faker faker = new Faker(new Locale("en-US"));

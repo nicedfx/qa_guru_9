@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -15,6 +16,7 @@ import static io.qameta.allure.Allure.step;
 public class AlfaBankTests extends TestBase{
 
     @Test
+    @DisplayName("Test for Deposits on AlfaBank")
     public void alfaTestDeposits() {
         step("Navigate to the sought for page.", () -> {
             open("https://alfabank.ru");
@@ -29,6 +31,7 @@ public class AlfaBankTests extends TestBase{
     }
 
     @Test
+    @DisplayName("Test using a 'sibling' method")
     public void alfaTestSibling() {
         step("Using a simple selector with \"sibling\" method", () -> {
             open("https://alfabank.ru/make-money/");
@@ -38,6 +41,7 @@ public class AlfaBankTests extends TestBase{
     }
 
     @Test
+    @DisplayName("")
     public void alfaTestPrecedingAndParent() {
         step("Using a simple selector with \"preceding\" method", () -> {
             open("https://alfabank.ru/make-money/");
@@ -47,6 +51,7 @@ public class AlfaBankTests extends TestBase{
     }
 
     @Test
+    @DisplayName("Selenide test using closest method")
     public void alfaTestClosest() {
         step("Using a simple selector with \"preceding\" method", () -> {
             open("https://alfabank.ru/make-money/");

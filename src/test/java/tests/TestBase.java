@@ -9,6 +9,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.AttachmentHelper.*;
+import static org.openqa.selenium.remote.BrowserType.FIREFOX;
+import static org.openqa.selenium.remote.BrowserType.EDGE;
 
 
 public class TestBase {
@@ -21,6 +23,7 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+        Configuration.browser = FIREFOX;
 
         if (System.getProperty("remote.browser.url") != null){
             if (System.getProperty("remote.browser.url").equals("notebook.home")){
@@ -45,6 +48,7 @@ public class TestBase {
     public void wrapUp() {
         attachScreenshot("Last screenshot");
         attachPageSource();
+        attachVideo();
 //        attachAsText("Browser console logs", getConsoleLogs());
 //        attachAsText("Browser console logs", "Just a text");
 //        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");

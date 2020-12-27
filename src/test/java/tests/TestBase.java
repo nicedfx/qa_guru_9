@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.AttachmentHelper.*;
 import static org.openqa.selenium.remote.BrowserType.FIREFOX;
-import static org.openqa.selenium.remote.BrowserType.EDGE;
 
 
 public class TestBase {
@@ -32,15 +31,7 @@ public class TestBase {
             else if (System.getProperty("remote.browser.url").equals("selenoid.autotests.cloud")) {
                 Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
             }
-            else {
-                Configuration.remote = "https://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
-            }
         }
-//        else {
-//            Configuration.remote = "http://notebook.home:4444/wd/hub/";
-//        }
-
-//        System.out.println("!@#!@#!@#@# SELENOID URI IS: " + Configuration.remote);
         Configuration.startMaximized = true;
     }
 
@@ -49,13 +40,6 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachVideo();
-//        attachAsText("Browser console logs", getConsoleLogs());
-//        attachAsText("Browser console logs", "Just a text");
-//        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-//        System.out.println("Printing out the console logs");
-//        System.out.println(Selenide.getWebDriverLogs(BROWSER));
-//        System.out.println(getConsoleLogs());
-//        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         closeWebDriver();
         }
 

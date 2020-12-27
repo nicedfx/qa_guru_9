@@ -36,7 +36,7 @@ public class AttachmentHelper {
     }
 
     public static String getVideoUrl() {
-        return "https://" + System.getProperty("remote.browser.url") + "/video/" + getSessionId() + ".mp4";
+        return "http://" + System.getProperty("remote.browser.url") + "/video/" + getSessionId() + ".mp4";
     }
 
     private static String getSessionId() {

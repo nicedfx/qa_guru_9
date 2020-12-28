@@ -31,6 +31,9 @@ public class TestBase {
             else if (System.getProperty("remote.browser.url").equals("selenoid.autotests.cloud")) {
                 Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
             }
+            else if (System.getProperty("remote.browser.url").equals("168.119.167.132")) {
+                Configuration.remote = "https://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+            }
         }
         Configuration.startMaximized = true;
     }

@@ -25,14 +25,14 @@ public class TestBase {
         Configuration.browser = FIREFOX;
 
         if (System.getProperty("remote.browser.url") != null){
-            if (System.getProperty("remote.browser.url").equals("notebook.home")){
-                Configuration.remote = "http://notebook.home:4444/wd/hub/";
+            if (System.getProperty("remote.browser.url").equals(null)) {
+                return;
             }
             else if (System.getProperty("remote.browser.url").equals("selenoid.autotests.cloud")) {
                 Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
             }
-            else if (System.getProperty("remote.browser.url").equals("168.119.167.132")) {
-                Configuration.remote = "https://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+            else  {
+                Configuration.remote = "http://" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
             }
         }
         Configuration.startMaximized = true;
